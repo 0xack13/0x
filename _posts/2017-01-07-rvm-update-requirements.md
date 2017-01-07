@@ -2,7 +2,7 @@
 layout: post
 title:  "RVM update requirements script"
 date:   2017-01-07 13:20:45 +0300
-categories: linux ruby rvm
+categories: linux ruby rvm bash
 ---
 
 I usually use RVM for managing different versions of Ruby installations in my machine. RVM typically requires a sucessful update of your system prior to installing Ruby. To be specific, in Debian there is a function `requirements_debian_update_system` that updates the system automatically and in case of any errors, the installation process will break. This fuction resides in a **bash** script and usually it takes the following path in your **home** directory. In my home directory, here is the path of the requirements directory which has the requirements of ubuntu distro in the `ubuntu` bash script:
@@ -41,4 +41,7 @@ requirements_debian_update_system()
 
 By looking at the code, you have either to fix your update source in order to get `0` return value ofthe update system function or bypass the code in the function in order to skip the update verification.
 
+For more information on the above code imlpementation and especially the `__rvm_try_sudo` function, you can refer to the `utility` bash script [here].
+
 [on github]: https://github.com/rvm/rvm/blob/bee47675c34a4ba96f849017ea06ce00efcbfc7a/scripts/functions/requirements/ubuntu#L39
+[here]: https://github.com/rvm/rvm/blob/bee47675c34a4ba96f849017ea06ce00efcbfc7a/scripts/functions/utility#L341
